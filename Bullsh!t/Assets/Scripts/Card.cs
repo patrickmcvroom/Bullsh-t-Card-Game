@@ -1,19 +1,25 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TrueGames.Bullshit.DataModels;
+using SRandom = System.Random;
 
 namespace TrueGames.Bullshit
 {
-    public class Card : MonoBehaviour
+    public class Card
     {
-        private Rank _rank;
         private Suit _suit;
+        private Rank _rank;
 
-        public Card(Rank rank, Suit suit)
+        public Suit Suit { get { return _suit; } }
+
+        public Rank Rank { get { return _rank; } }
+
+        public Card(Suit suit, Rank rank)
         {
-            _rank = rank;
             _suit = suit;
+            _rank = rank;
         }
     }
 }

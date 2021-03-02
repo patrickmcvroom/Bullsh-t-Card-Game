@@ -1,9 +1,9 @@
 ﻿<Properties StartupConfiguration="{D9E9914B-1CF5-3E38-D09E-BF8084945B1C}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Card.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Deck.cs">
     <Files>
-      <File FileName="Assets/Scripts/Card.cs" Line="19" Column="2" />
-      <File FileName="Assets/Scripts/Suit.cs" Line="5" Column="1" />
-      <File FileName="Assets/Scripts/Rank.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Card.cs" Line="10" Column="22" />
+      <File FileName="Assets/Scripts/Deck.cs" Line="25" Column="1" />
+      <File FileName="Assets/Scripts/Data Models/Rank.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -11,7 +11,8 @@
           <Node name="Bullsh!t" expanded="True">
             <Node name="Assets" expanded="True">
               <Node name="Scripts" expanded="True">
-                <Node name="Card.cs" selected="True" />
+                <Node name="Data Models" expanded="True" />
+                <Node name="Deck.cs" selected="True" />
               </Node>
             </Node>
           </Node>
