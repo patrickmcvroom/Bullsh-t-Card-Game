@@ -7,18 +7,21 @@ using SRandom = System.Random;
 
 namespace TrueGames.Bullshit
 {
-
     public class Deck : MonoBehaviour
     {
         private Stack<Card> _cards = new Stack<Card>();
-        
+        private int _cardIndex = 0;
+
+        public Stack<Card> Cards { get { return _cards; } }
+
         public void Awake()
         {
             foreach(Suit suit in Enum.GetValues(typeof(Suit)))
             {
                 foreach(Rank rank in Enum.GetValues(typeof(Rank)))
                 {
-                    _cards.Push(new Card(suit, rank));
+                    _cards.Push(new Card(suit, rank, _cardIndex));
+                    _cardIndex++;
                 }
             }
         }
@@ -28,6 +31,14 @@ namespace TrueGames.Bullshit
             var temp = cards[a];
             cards[a] = cards[b];
             cards[b] = temp;
+        }
+
+        public void Show()
+        {
+            //foreach (var card in Cards)
+            //{
+            //    Debug.Log(card.ToString());
+            //}
         }
 
         public void Shuffle()
@@ -47,17 +58,31 @@ namespace TrueGames.Bullshit
             }
         }
 
-        public void Start()
+        /// <summary>
+        /// Distributes all of the cards in the deck as evenly as possible to all players.
+        /// </summary>
+        /// <param name="players">
+        /// The group of players.
+        /// </param>
+        public void Deal(List<Player> players)
         {
-            Shuffle();
-
-            foreach (Card card in _cards)
+            while(_cards.Count != 0)
             {
-                Debug.Log(card.Rank.ToString() + " of " + card.Suit.ToString());
+                foreach(var player in players)
+                {
+                    if (_cards.Count != 0)
+                    {
+                        player.Cards.Push(this._cards.Pop());
+                    }
+                    else return;
+                }
             }
         }
 
+        public List<Card> LastCardsDrawn(int drawAmount)
+        {
+            return new List<Card>();
+        }
     }
-
 }
 
