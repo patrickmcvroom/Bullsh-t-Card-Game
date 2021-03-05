@@ -59,12 +59,12 @@ namespace TrueGames.Bullshit
         }
 
         /// <summary>
-        /// Distributes all of the cards in the deck as evenly as possible to all players.
+        /// Distributes all of the cards in the deck as evenly as possible to all hands.
         /// </summary>
-        /// <param name="players">
-        /// The group of players.
+        /// <param name="hands">
+        /// The group of hands.
         /// </param>
-        public void Deal(List<Player> players)
+        public void Deal(List<GameObject> players)
         {
             while(_cards.Count != 0)
             {
@@ -72,7 +72,7 @@ namespace TrueGames.Bullshit
                 {
                     if (_cards.Count != 0)
                     {
-                        player.Cards.Push(this._cards.Pop());
+                        player.GetComponent<Player>().Hand.Cards.Push(this._cards.Pop());
                     }
                     else return;
                 }

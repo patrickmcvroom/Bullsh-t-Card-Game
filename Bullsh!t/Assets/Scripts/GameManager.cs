@@ -12,7 +12,7 @@ namespace TrueGames.Bullshit
 
         [SerializeField] private Deck _deck;
         [SerializeField] private GameObject _player;
-        [SerializeField] private static List<Player> _players = new List<Player>();
+        [SerializeField] private static List<GameObject> _players = new List<GameObject>();
         [SerializeField] private int _totalPlayers;
         [SerializeField] private int _playerTurn;
 
@@ -25,11 +25,20 @@ namespace TrueGames.Bullshit
 
         public void Setup()
         {
-            var Nick = new Player("Nick");
-            var Patrick = new Player("Patrick");
+            var NickHand = new Hand();
+            var PatrickHand = new Hand();
+
+            var Nick = Instantiate(_player, Vector3.up, Quaternion.identity);
+            Nick.GetComponent<Player>().Name = "Nick";
+            Nick.GetComponent<Player>().Hand = NickHand;
+            Nick.name = Nick.GetComponent<Player>().Name;
+
+            var Patrick = Instantiate(_player, Vector3.up, Quaternion.identity);
+            Patrick.GetComponent<Player>().Name = "Patrick";
+            Patrick.GetComponent<Player>().Hand = PatrickHand;
+            Patrick.name = Patrick.GetComponent<Player>().Name;
 
             _players.Add(Nick);
-            _players.Add(Patrick);
 
             _totalPlayers = _players.Count;
 
@@ -59,7 +68,10 @@ namespace TrueGames.Bullshit
         IEnumerator ShowPlayersCards()
         {
             yield return new WaitForSeconds(1f);
-            _players[_playerTurn].ShowCards();
+
+            var currentPlayer = _players[_playerTurn].GetComponent<Player>();
+
+            currentPlayer.ShowCards();
         }
     }
 }

@@ -1,42 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using TrueGames.Bullshit;
+using TrueGames.Bullshit.DataModels;
 
-namespace TrueGames.Bullshit
+public class Player : MonoBehaviour
 {
-    public class Player : MonoBehaviour
+    private string _name;
+    private Hand _hand;
+
+    [SerializeField] private CardRenderer _cardRenderer;
+
+    private Card TopCard => _hand.Cards.Peek();
+
+    public string Name { get => _name; set => _name = value; }
+    public Hand Hand { get => _hand; set => _hand = value; }
+
+    public Player(string name, Hand hand)
     {
-        [SerializeField] private string _name;
-        [SerializeField] private CardRenderer _cardRenderer;
+        _name = name;
+        _hand = hand;
+    }
 
-        public string Name { get => _name; set => _name = value; }
-        public Stack<Card> Cards = new Stack<Card>();
-
-        public Player(string name)
-        {
-            _name = name;
-        }
-
-        public void ShowCards()
-        {
-            _cardRenderer.DisplayCard(Cards.Peek(), Vector3.zero);
-        }
-
-        public void Declare()
-        {
-            // Player declares what card he/she will put down.
-        }
-
-        public void Draw()
-        {
-            // Player puts down a card into the pile.
-        }
-
-        public void Bullshit()
-        {
-            // Check if the recent cards in the pile is EQUAL to what the previous player declared.
-        }
+    public void ShowCards()
+    {
+        _cardRenderer.DisplayCard(TopCard, Vector3.zero);
     }
 }
-
