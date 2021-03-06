@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
 
     [SerializeField] private CardRenderer _cardRenderer;
 
-    private Card TopCard => _hand.Cards.Peek();
+    // private Card TopCard => _hand.Cards.Peek();
 
     public string Name { get => _name; set => _name = value; }
     public Hand Hand { get => _hand; set => _hand = value; }
@@ -22,8 +22,38 @@ public class Player : MonoBehaviour
         _hand = hand;
     }
 
-    public void ShowCards()
+    public IEnumerator ShowCards()
     {
-        _cardRenderer.DisplayCard(TopCard, Vector3.zero);
+        var cardsArray = _hand.Cards.ToArray();
+        var cardStartingPosition = new Vector3(-120f, -30f, 0f);
+
+        if (cardsArray.Length >= 13)
+        {
+            for (int i = 0; i < 13; i++)
+            {
+                _cardRenderer.DisplayCard(cardsArray[i], cardStartingPosition);
+                cardStartingPosition.x += 20f;
+                yield return new WaitForSeconds(0.05f);
+            }
+
+            cardStartingPosition.x = -120f;
+            cardStartingPosition.y = -62;
+
+            for (int i = 13; i < cardsArray.Length; i++)
+            {
+                _cardRenderer.DisplayCard(cardsArray[i], cardStartingPosition);
+                cardStartingPosition.x += 20f;
+                yield return new WaitForSeconds(0.05f);
+            }
+        }
+        else
+        {
+            for (int i = 0; i < cardsArray.Length; i++)
+            {
+                _cardRenderer.DisplayCard(cardsArray[i], cardStartingPosition);
+                cardStartingPosition.x += 20f;
+                yield return new WaitForSeconds(0.05f);
+            }
+        }
     }
 }

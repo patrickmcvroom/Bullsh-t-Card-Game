@@ -10,7 +10,7 @@ namespace TrueGames.Bullshit
     public class Deck : MonoBehaviour
     {
         private Stack<Card> _cards = new Stack<Card>();
-        private int _cardIndex = 0;
+        //private int _cardIndex = 0;
 
         public Stack<Card> Cards { get { return _cards; } }
 
@@ -20,8 +20,8 @@ namespace TrueGames.Bullshit
             {
                 foreach(Rank rank in Enum.GetValues(typeof(Rank)))
                 {
-                    _cards.Push(new Card(suit, rank, _cardIndex));
-                    _cardIndex++;
+                    _cards.Push(new Card(suit, rank));
+                    //_cardIndex++;
                 }
             }
         }

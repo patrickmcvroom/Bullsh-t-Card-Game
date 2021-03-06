@@ -8,17 +8,17 @@ namespace TrueGames.Bullshit
     {
         private Suit _suit;
         private Rank _rank;
-        private int _cardIndex;
+        //private int _cardIndex;
         
         public Suit Suit { get => _suit; }
         public Rank Rank { get => _rank; }
-        public int CardIndex { get => _cardIndex; }
+        //public int CardIndex { get => _cardIndex; }
 
-        public Card(Suit suit, Rank rank, int cardIndex)
+        public Card(Suit suit, Rank rank)
         {
             _suit = suit;
             _rank = rank;
-            _cardIndex = cardIndex;
+            //_cardIndex = cardIndex;
         }
 
         public override string ToString()

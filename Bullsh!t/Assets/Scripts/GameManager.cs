@@ -19,7 +19,6 @@ namespace TrueGames.Bullshit
         private void Start()
         {
             _gamestate = GameState.Start;
-
             Setup();
         }
 
@@ -39,6 +38,7 @@ namespace TrueGames.Bullshit
             Patrick.name = Patrick.GetComponent<Player>().Name;
 
             _players.Add(Nick);
+            _players.Add(Patrick);
 
             _totalPlayers = _players.Count;
 
@@ -52,11 +52,7 @@ namespace TrueGames.Bullshit
 
             _playerTurn = 0;
 
-            //ShowPlayersCards();
-            //_deck.Show();
-
             StartCoroutine(ShowPlayersCards());
-            
         }
 
         public void NextTurn()
@@ -71,7 +67,7 @@ namespace TrueGames.Bullshit
 
             var currentPlayer = _players[_playerTurn].GetComponent<Player>();
 
-            currentPlayer.ShowCards();
+            StartCoroutine(currentPlayer.ShowCards());
         }
     }
 }
