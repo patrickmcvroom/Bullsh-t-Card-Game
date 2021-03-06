@@ -74,7 +74,7 @@ namespace TrueGames.Bullshit
                 {
                     if (_cards.Count != 0)
                     {
-                        player.GetComponent<Player>().Hand.Cards.Push(this._cards.Pop());
+                        player.GetComponent<Player>().Hand.Cards.Add(this._cards.Pop());
                     }
                     else return;
                 }
