@@ -48,6 +48,8 @@ public class Player : MonoBehaviour
         }
         else
         {
+            cardStartingPosition.y = -52;
+
             for (int i = 0; i < cardsArray.Length; i++)
             {
                 _cardRenderer.DisplayCard(cardsArray[i], cardStartingPosition);

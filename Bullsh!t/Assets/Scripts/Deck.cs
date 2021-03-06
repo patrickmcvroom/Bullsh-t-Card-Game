@@ -66,9 +66,11 @@ namespace TrueGames.Bullshit
         /// </param>
         public void Deal(List<GameObject> players)
         {
-            while(_cards.Count != 0)
+            // --------- GIVE EACH PLAYER AS MANY CARDS AS POSSIBLE --------- //
+
+            while (_cards.Count != 0)
             {
-                foreach(var player in players)
+                foreach (var player in players)
                 {
                     if (_cards.Count != 0)
                     {
@@ -77,6 +79,20 @@ namespace TrueGames.Bullshit
                     else return;
                 }
             }
+
+            // --------- GIVE EACH PLAYER 'i' AMOUNT OF CARDS --------- //
+
+            //for(int i = 1; i <= 7; i++)
+            //{
+            //    foreach(var player in players)
+            //    {
+            //        if (_cards.Count != 0)
+            //        {
+            //            player.GetComponent<Player>().Hand.Cards.Push(this._cards.Pop());
+            //        }
+            //        else return;
+            //    }
+            //}
         }
 
         public List<Card> LastCardsDrawn(int drawAmount)
