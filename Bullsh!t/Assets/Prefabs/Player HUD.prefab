@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7224851124372277929}
+  - component: {fileID: 1814747777031860998}
   m_Layer: 5
   m_Name: Player HUD
   m_TagString: Untagged
@@ -35,9 +36,24 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -721, y: 383}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1814747777031860998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7224851124372277930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad60e19accc434e3aa4c6506c460ea06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerImage: {fileID: 7224851125484601630}
+  _playerName: {fileID: 7224851124941952910}
+  _cardsLeft: {fileID: 7224851125511592167}
 --- !u!1 &7224851124941952944
 GameObject:
   m_ObjectHideFlags: 0
@@ -51,7 +67,7 @@ GameObject:
   - component: {fileID: 7224851124941952910}
   m_Layer: 5
   m_Name: Name Text
-  m_TagString: Untagged
+  m_TagString: HUD Name
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -187,7 +203,7 @@ GameObject:
   - component: {fileID: 7224851125484601630}
   m_Layer: 5
   m_Name: Image
-  m_TagString: Untagged
+  m_TagString: HUD Image
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -262,7 +278,7 @@ GameObject:
   - component: {fileID: 7224851125511592167}
   m_Layer: 5
   m_Name: Cards Left Text
-  m_TagString: Untagged
+  m_TagString: HUD Cards Left
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

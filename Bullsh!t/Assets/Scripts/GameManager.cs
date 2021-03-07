@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TrueGames.Bullshit.DataModels;
+using URandom = UnityEngine.Random;
 
 namespace TrueGames.Bullshit
 {
@@ -43,7 +45,7 @@ namespace TrueGames.Bullshit
 
             _totalPlayers = _players.Count;
 
-
+            
 
             // EVERYTHING ABOVE WILL GO INTO AN INPUT PLAYERS METHOD.
 
@@ -52,6 +54,8 @@ namespace TrueGames.Bullshit
             _gamestate = GameState.Deal;
 
             _deck.Deal(_players);
+
+            StartCoroutine(CreatePlayerHUDs());
 
             _gamestate = GameState.Playing;
 
@@ -73,6 +77,26 @@ namespace TrueGames.Bullshit
             var currentPlayer = _players[_playerTurn].GetComponent<Player>();
 
             StartCoroutine(currentPlayer.ShowCards());
+        }
+        
+        IEnumerator CreatePlayerHUDs()
+        {
+            var _gameplayCanvas = GameObject.FindGameObjectWithTag("Gameplay Canvas");
+
+            var HUDStartPosistion = new Vector3(XPositions.HUDXPositions[_players.Count], 75f, 0f);
+
+            for (int i = 0; i < _players.Count; i++)
+            {
+                var HUDObject = Instantiate(_playerHUD, HUDStartPosistion, Quaternion.identity, _gameplayCanvas.GetComponent<Transform>());
+                var PlayerHUD = HUDObject.GetComponent<PlayerHUD>();
+
+                PlayerHUD.PlayerImage.color = new Color(URandom.value, URandom.value, URandom.value);
+                PlayerHUD.PlayerName.text = _players[i].GetComponent<Player>().Name;
+                PlayerHUD.CardsLeft.text = _players[i].GetComponent<Player>().Hand.Cards.Count.ToString();
+
+                HUDStartPosistion.x += 40f;
+                yield return new WaitForSeconds(0.1f);
+            }
         }
     }
 }

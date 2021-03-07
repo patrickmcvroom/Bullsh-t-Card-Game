@@ -31,7 +31,7 @@ public class Player : MonoBehaviour
             var cardCount = _hand.Cards.Count;
             int halfCardCount = (int)(cardCount * 0.5f);
 
-            var cardStartingPosition = new Vector3(CardXPositions.X[halfCardCount], -30f, 0f);
+            var cardStartingPosition = new Vector3(XPositions.CardXPositions[halfCardCount], -30f, 0f);
 
             for (int i = 0; i < (halfCardCount); i++)
             {
@@ -40,7 +40,7 @@ public class Player : MonoBehaviour
                 yield return new WaitForSeconds(0.05f);
             }
 
-            cardStartingPosition.x = CardXPositions.X[cardCount - halfCardCount];
+            cardStartingPosition.x = XPositions.CardXPositions[cardCount - halfCardCount];
             cardStartingPosition.y = -62;
 
             for (int i = halfCardCount; i < cardCount; i++)
@@ -54,7 +54,7 @@ public class Player : MonoBehaviour
         {
             var cardCount = _hand.Cards.Count;
 
-            var cardStartingPosition = new Vector3(CardXPositions.X[cardCount], -52f, 0f);
+            var cardStartingPosition = new Vector3(XPositions.CardXPositions[cardCount], -52f, 0f);
 
             for (int i = 0; i < cardCount; i++)
             {

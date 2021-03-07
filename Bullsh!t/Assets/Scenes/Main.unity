@@ -209,7 +209,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84849aa1c9bf244c2a4e443c3d8d3b25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DealAmount: 25
+  DealAmount: 15
 --- !u!4 &457456781
 Transform:
   m_ObjectHideFlags: 0
@@ -527,7 +527,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -150.3}
+  m_LocalPosition: {x: 0, y: 0, z: -150}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -564,7 +564,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _deck: {fileID: 457456780}
   _player: {fileID: 8154332640084624661, guid: effbb29d5cd0a4d27a0274a2273718a2, type: 3}
-  _playerHUD: {fileID: 0}
+  _playerHUD: {fileID: 7224851124372277930, guid: 808414a72e3a544979e2681494e416ff, type: 3}
   _totalPlayers: 6
   _playerTurn: 0
 --- !u!4 &1505645947
@@ -595,7 +595,7 @@ GameObject:
   - component: {fileID: 1537105286}
   m_Layer: 5
   m_Name: Gameplay Canvas
-  m_TagString: Untagged
+  m_TagString: Gameplay Canvas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -639,7 +639,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!223 &1537105288
 Canvas:
   m_ObjectHideFlags: 0
@@ -649,7 +649,7 @@ Canvas:
   m_GameObject: {fileID: 1537105285}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 1
+  m_RenderMode: 2
   m_Camera: {fileID: 963194227}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -670,7 +670,7 @@ RectTransform:
   m_GameObject: {fileID: 1537105285}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.11478137, y: 0.11478137, z: 0.11478137}
   m_Children:
   - {fileID: 962310729}
   m_Father: {fileID: 0}
@@ -679,8 +679,8 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0, y: 0}
+  m_SizeDelta: {x: 1682, y: 1006}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1703389460
 GameObject:
   m_ObjectHideFlags: 0
