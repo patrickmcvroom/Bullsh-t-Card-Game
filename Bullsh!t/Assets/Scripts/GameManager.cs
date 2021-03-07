@@ -12,6 +12,7 @@ namespace TrueGames.Bullshit
 
         [SerializeField] private Deck _deck;
         [SerializeField] private GameObject _player;
+        [SerializeField] private GameObject _playerHUD;
         [SerializeField] private static List<GameObject> _players = new List<GameObject>();
         [SerializeField] private int _totalPlayers;
         [SerializeField] private int _playerTurn;
@@ -41,6 +42,10 @@ namespace TrueGames.Bullshit
             _players.Add(Patrick);
 
             _totalPlayers = _players.Count;
+
+
+
+            // EVERYTHING ABOVE WILL GO INTO AN INPUT PLAYERS METHOD.
 
             _deck.Shuffle();
 

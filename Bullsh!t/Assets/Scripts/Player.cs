@@ -24,22 +24,26 @@ public class Player : MonoBehaviour
 
     public IEnumerator ShowCards()
     {
-        //var cardsArray = _hand.Cards.ToArray();
-        var cardStartingPosition = new Vector3(-120f, -30f, 0f);
+        // var cardMiddlePosition = new Vector3(0f, -30f, 0f);
 
-        if (_hand.Cards.Count >= 13)
+        if (_hand.Cards.Count > 13)
         {
-            for (int i = 0; i < 13; i++)
+            var cardCount = _hand.Cards.Count;
+            int halfCardCount = (int)(cardCount * 0.5f);
+
+            var cardStartingPosition = new Vector3(CardXPositions.X[halfCardCount], -30f, 0f);
+
+            for (int i = 0; i < (halfCardCount); i++)
             {
                 _cardRenderer.DisplayCard(_hand.Cards[i], cardStartingPosition);
                 cardStartingPosition.x += 20f;
                 yield return new WaitForSeconds(0.05f);
             }
 
-            cardStartingPosition.x = -120f;
+            cardStartingPosition.x = CardXPositions.X[cardCount - halfCardCount];
             cardStartingPosition.y = -62;
 
-            for (int i = 13; i < _hand.Cards.Count; i++)
+            for (int i = halfCardCount; i < cardCount; i++)
             {
                 _cardRenderer.DisplayCard(_hand.Cards[i], cardStartingPosition);
                 cardStartingPosition.x += 20f;
@@ -48,9 +52,11 @@ public class Player : MonoBehaviour
         }
         else
         {
-            cardStartingPosition.y = -52;
+            var cardCount = _hand.Cards.Count;
 
-            for (int i = 0; i < _hand.Cards.Count; i++)
+            var cardStartingPosition = new Vector3(CardXPositions.X[cardCount], -52f, 0f);
+
+            for (int i = 0; i < cardCount; i++)
             {
                 _cardRenderer.DisplayCard(_hand.Cards[i], cardStartingPosition);
                 cardStartingPosition.x += 20f;

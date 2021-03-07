@@ -13,6 +13,7 @@ namespace TrueGames.Bullshit
         //private int _cardIndex = 0;
 
         public Stack<Card> Cards { get { return _cards; } }
+        public int DealAmount;
 
         public void Awake()
         {
@@ -68,7 +69,21 @@ namespace TrueGames.Bullshit
         {
             // --------- GIVE EACH PLAYER AS MANY CARDS AS POSSIBLE --------- //
 
-            while (_cards.Count != 0)
+            //while (_cards.Count != 0)
+            //{
+            //    foreach (var player in players)
+            //    {
+            //        if (_cards.Count != 0)
+            //        {
+            //            player.GetComponent<Player>().Hand.Cards.Add(this._cards.Pop());
+            //        }
+            //        else return;
+            //    }
+            //}
+
+            // --------- GIVE EACH PLAYER 'i' AMOUNT OF CARDS --------- //
+
+            for (int i = 1; i <= DealAmount; i++)
             {
                 foreach (var player in players)
                 {
@@ -79,20 +94,6 @@ namespace TrueGames.Bullshit
                     else return;
                 }
             }
-
-            // --------- GIVE EACH PLAYER 'i' AMOUNT OF CARDS --------- //
-
-            //for(int i = 1; i <= 7; i++)
-            //{
-            //    foreach(var player in players)
-            //    {
-            //        if (_cards.Count != 0)
-            //        {
-            //            player.GetComponent<Player>().Hand.Cards.Push(this._cards.Pop());
-            //        }
-            //        else return;
-            //    }
-            //}
         }
 
         public List<Card> LastCardsDrawn(int drawAmount)
