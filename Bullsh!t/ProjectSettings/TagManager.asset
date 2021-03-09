@@ -8,6 +8,8 @@ TagManager:
   - HUD Image
   - HUD Name
   - HUD Cards Left
+  - Quantity Button
+  - Rank Button
   layers:
   - Default
   - TransparentFX

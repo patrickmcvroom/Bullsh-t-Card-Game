@@ -1,17 +1,12 @@
 ﻿<Properties StartupConfiguration="{D9E9914B-1CF5-3E38-D09E-BF8084945B1C}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Data Models/CardXPositions.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/GameManager.cs">
     <Files>
-      <File FileName="Assets/Scripts/GameManager.cs" Line="94" Column="2" />
-      <File FileName="Assets/PlayerHUD.cs" Line="14" Column="49" />
-      <File FileName="Assets/Scripts/Player.cs" Line="26" Column="6" />
-      <File FileName="Assets/Scripts/CardRenderer.cs" Line="17" Column="76" />
-      <File FileName="Assets/Scripts/Deck.cs" />
-      <File FileName="Assets/Scripts/Card.cs" />
-      <File FileName="Assets/PhysicalCard.cs" Line="7" Column="20" />
-      <File FileName="Assets/Scripts/Data Models/Rank.cs" />
-      <File FileName="Assets/Scripts/Hand.cs" />
-      <File FileName="Assets/Scripts/Data Models/Suit.cs" />
-      <File FileName="Assets/Scripts/Data Models/CardXPositions.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/GameManager.cs" Line="75" Column="10" />
+      <File FileName="Assets/Scripts/NewClass.cs" Line="8" Column="2" />
+      <File FileName="Assets/Scripts/NewMonoBehaviour.cs" Line="19" Column="6" />
+      <File FileName="Assets/Scripts/NewMonoBehaviour.cs" Line="15" Column="74" />
+      <File FileName="Assets/Scripts/Data Models/Rank.cs" Line="4" Column="44" />
+      <File FileName="Assets/Scripts/CardRenderer.cs" Line="9" Column="84" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -19,9 +14,7 @@
           <Node name="Bullsh!t" expanded="True">
             <Node name="Assets" expanded="True">
               <Node name="Scripts" expanded="True">
-                <Node name="Data Models" expanded="True">
-                  <Node name="CardXPositions.cs" selected="True" />
-                </Node>
+                <Node name="GameManager.cs" selected="True" />
               </Node>
             </Node>
           </Node>
