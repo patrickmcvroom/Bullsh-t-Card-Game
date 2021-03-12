@@ -14,14 +14,16 @@ public class RankButtons : MonoBehaviour
 
     [SerializeField] private TrueGamesButton _rankButtonPrefab;
     [SerializeField] private TrueGamesButton _quantityButtonPrefab;
-    [SerializeField] private Declaration _declaration;
+    //[SerializeField] private Declaration _declaration;
+    [SerializeField] private DeclarationRenderer _declarationRenderer;
 
-    public delegate void DeclarationEventHandler(SObject source, EventArgs args);
-    public event DeclarationEventHandler Declaration;
+    public delegate void CardsDeclaredEventHandler(SObject source, EventArgs args);
+    public event CardsDeclaredEventHandler CardsDeclared;
     
-    private void Start()
+    private void Awake()
     {
         showingQuantityButtons = false;
+        CardsDeclared += _declarationRenderer.OnCardsDeclared;
     }
 
     private IEnumerator HideButtonDisplay()
@@ -113,98 +115,107 @@ public class RankButtons : MonoBehaviour
         {
             case "A":
                 RemoveQuantityButtons();
-                _declaration.DeclaredRank = Rank.Ace;
-                Debug.Log("Declared an " + _declaration.DeclaredRank.ToString() + "!");
+                Declaration.DeclaredRank = Rank.Ace;
+                Debug.Log("Declared an " + Declaration.DeclaredRank.ToString() + "!");
                 StartCoroutine(DisplayQuantityButtons());
                 break;
             case "2":
                 RemoveQuantityButtons();
-                _declaration.DeclaredRank = Rank.Two;
-                Debug.Log("Declared a " + _declaration.DeclaredRank.ToString() + "!");
+                Declaration.DeclaredRank = Rank.Two;
+                Debug.Log("Declared a " + Declaration.DeclaredRank.ToString() + "!");
                 StartCoroutine(DisplayQuantityButtons());
                 break;
             case "3":
                 RemoveQuantityButtons();
-                _declaration.DeclaredRank = Rank.Three;
-                Debug.Log("Declared a " + _declaration.DeclaredRank.ToString() + "!");
+                Declaration.DeclaredRank = Rank.Three;
+                Debug.Log("Declared a " + Declaration.DeclaredRank.ToString() + "!");
                 StartCoroutine(DisplayQuantityButtons());
                 break;
             case "4":
                 RemoveQuantityButtons();
-                _declaration.DeclaredRank = Rank.Four;
-                Debug.Log("Declared a " + _declaration.DeclaredRank.ToString() + "!");
+                Declaration.DeclaredRank = Rank.Four;
+                Debug.Log("Declared a " + Declaration.DeclaredRank.ToString() + "!");
                 StartCoroutine(DisplayQuantityButtons());
                 break;
             case "5":
                 RemoveQuantityButtons();
-                _declaration.DeclaredRank = Rank.Five;
-                Debug.Log("Declared a " + _declaration.DeclaredRank.ToString() + "!");
+                Declaration.DeclaredRank = Rank.Five;
+                Debug.Log("Declared a " + Declaration.DeclaredRank.ToString() + "!");
                 StartCoroutine(DisplayQuantityButtons());
                 break;
             case "6":
                 RemoveQuantityButtons();
-                _declaration.DeclaredRank = Rank.Six;
-                Debug.Log("Declared a " + _declaration.DeclaredRank.ToString() + "!");
+                Declaration.DeclaredRank = Rank.Six;
+                Debug.Log("Declared a " + Declaration.DeclaredRank.ToString() + "!");
                 StartCoroutine(DisplayQuantityButtons());
                 break;
             case "7":
                 RemoveQuantityButtons();
-                _declaration.DeclaredRank = Rank.Seven;
-                Debug.Log("Declared a " + _declaration.DeclaredRank.ToString() + "!");
+                Declaration.DeclaredRank = Rank.Seven;
+                Debug.Log("Declared a " + Declaration.DeclaredRank.ToString() + "!");
                 StartCoroutine(DisplayQuantityButtons());
                 break;
             case "8":
                 RemoveQuantityButtons();
-                _declaration.DeclaredRank = Rank.Eight;
-                Debug.Log("Declared an " + _declaration.DeclaredRank.ToString() + "!");
+                Declaration.DeclaredRank = Rank.Eight;
+                Debug.Log("Declared an " + Declaration.DeclaredRank.ToString() + "!");
                 StartCoroutine(DisplayQuantityButtons());
                 break;
             case "9":
                 RemoveQuantityButtons();
-                _declaration.DeclaredRank = Rank.Nine;
-                Debug.Log("Declared a " + _declaration.DeclaredRank.ToString() + "!");
+                Declaration.DeclaredRank = Rank.Nine;
+                Debug.Log("Declared a " + Declaration.DeclaredRank.ToString() + "!");
                 StartCoroutine(DisplayQuantityButtons());
                 break;
             case "10":
                 RemoveQuantityButtons();
-                _declaration.DeclaredRank = Rank.Ten;
-                Debug.Log("Declared a " + _declaration.DeclaredRank.ToString() + "!");
+                Declaration.DeclaredRank = Rank.Ten;
+                Debug.Log("Declared a " + Declaration.DeclaredRank.ToString() + "!");
                 StartCoroutine(DisplayQuantityButtons());
                 break;
             case "J":
                 RemoveQuantityButtons();
-                _declaration.DeclaredRank = Rank.Jack;
-                Debug.Log("Declared a " + _declaration.DeclaredRank.ToString() + "!");
+                Declaration.DeclaredRank = Rank.Jack;
+                Debug.Log("Declared a " + Declaration.DeclaredRank.ToString() + "!");
                 StartCoroutine(DisplayQuantityButtons());
                 break;
             case "Q":
                 RemoveQuantityButtons();
-                _declaration.DeclaredRank = Rank.Queen;
-                Debug.Log("Declared a " + _declaration.DeclaredRank.ToString() + "!");
+                Declaration.DeclaredRank = Rank.Queen;
+                Debug.Log("Declared a " + Declaration.DeclaredRank.ToString() + "!");
                 StartCoroutine(DisplayQuantityButtons());
                 break;
             case "K":
                 RemoveQuantityButtons();
-                _declaration.DeclaredRank = Rank.King;
-                Debug.Log("Declared a " + _declaration.DeclaredRank.ToString() + "!");
+                Declaration.DeclaredRank = Rank.King;
+                Debug.Log("Declared a " + Declaration.DeclaredRank.ToString() + "!");
                 StartCoroutine(DisplayQuantityButtons());
                 break;
             case "x1":
-                _declaration.DeclaredQuantity = 1;
+                Declaration.DeclaredQuantity = 1;
+                OnCardsDeclared();
                 StartCoroutine(HideButtonDisplay());
                 break;
             case "x2":
-                _declaration.DeclaredQuantity = 2;
+                Declaration.DeclaredQuantity = 2;
+                OnCardsDeclared();
                 StartCoroutine(HideButtonDisplay());
                 break;
             case "x3":
-                _declaration.DeclaredQuantity = 3;
+                Declaration.DeclaredQuantity = 3;
+                OnCardsDeclared();
                 StartCoroutine(HideButtonDisplay());
                 break;
             case "x4":
-                _declaration.DeclaredQuantity = 4;
+                Declaration.DeclaredQuantity = 4;
+                OnCardsDeclared();
                 StartCoroutine(HideButtonDisplay());
                 break;
         }
+    }
+
+    protected virtual void OnCardsDeclared()
+    {
+        CardsDeclared?.Invoke(this, EventArgs.Empty);
     }
 }

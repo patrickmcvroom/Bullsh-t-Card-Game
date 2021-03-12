@@ -6,21 +6,21 @@ using TrueGames.Bullshit.DataModels;
 
 namespace TrueGames.Bullshit
 {
-    [Serializable]
+    //[Serializable]
     public class Declaration
     {
         [SerializeField]
-        private Rank _declaredRank;
+        private static Rank _declaredRank;
         [SerializeField]
-        private int _declaredQuantity;
+        private static int _declaredQuantity;
 
-        public Rank DeclaredRank { get => _declaredRank; set => _declaredRank = value; }
-        public int DeclaredQuantity { get => _declaredQuantity; set => _declaredQuantity = value; }
+        public static Rank DeclaredRank { get => _declaredRank; set => _declaredRank = value; }
+        public static int DeclaredQuantity { get => _declaredQuantity; set => _declaredQuantity = value; }
 
-        private Declaration(Rank rank, int quantity)
-        {
-            _declaredRank = rank;
-            _declaredQuantity = quantity;
-        }
+        //private Declaration(Rank rank, int quantity)
+        //{
+        //    _declaredRank = rank;
+        //    _declaredQuantity = quantity;
+        //}
     }
 }

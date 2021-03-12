@@ -1,10 +1,12 @@
 ﻿<Properties StartupConfiguration="{D9E9914B-1CF5-3E38-D09E-BF8084945B1C}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Declaration.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/GameManager.cs">
     <Files>
-      <File FileName="Assets/Scripts/RankButtons.cs" Line="17" Column="26" />
+      <File FileName="Assets/Scripts/RankButtons.cs" Line="210" Column="28" />
       <File FileName="Assets/Scripts/CardRenderer.cs" Line="16" Column="1" />
-      <File FileName="Assets/Scripts/NewClass.cs" Line="16" Column="1" />
-      <File FileName="Assets/Scripts/Declaration.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/NewClass.cs" Line="23" Column="1" />
+      <File FileName="Assets/Scripts/Declaration.cs" Line="10" Column="29" />
+      <File FileName="Assets/Scripts/PhysicalCard.cs" Line="5" Column="14" />
+      <File FileName="Assets/Scripts/GameManager.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -12,7 +14,7 @@
           <Node name="Bullsh!t" expanded="True">
             <Node name="Assets" expanded="True">
               <Node name="Scripts" expanded="True">
-                <Node name="Declaration.cs" selected="True" />
+                <Node name="GameManager.cs" selected="True" />
               </Node>
             </Node>
           </Node>

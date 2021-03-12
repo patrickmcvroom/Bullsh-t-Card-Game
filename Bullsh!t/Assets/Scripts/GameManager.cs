@@ -92,6 +92,7 @@ namespace TrueGames.Bullshit
                 var HUDObject = Instantiate(_playerHUD, HUDStartPosistion, Quaternion.identity, GameplayCanvas.GetComponent<Transform>());
                 var PlayerHUD = HUDObject.GetComponent<PlayerHUD>();
 
+                HUDObject.name = _players[i].GetComponent<Player>().Name + " HUD";
                 PlayerHUD.PlayerImage.color = new Color(URandom.value, URandom.value, URandom.value);
                 PlayerHUD.PlayerName.text = _players[i].GetComponent<Player>().Name;
                 PlayerHUD.CardsLeft.text = _players[i].GetComponent<Player>().Hand.Cards.Count.ToString();
