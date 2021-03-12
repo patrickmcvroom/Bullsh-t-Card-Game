@@ -1,5 +1,7 @@
 ﻿using System;
 using UnityEngine;
+using TrueGames.Bullshit;
+using TrueGames.Bullshit.DataModels;
 using SObject = System.Object;
 
 namespace TrueGames.Bullshit
@@ -15,7 +17,13 @@ namespace TrueGames.Bullshit
         {
             var texture = Resources.Load<Texture>($"{Declaration.DeclaredRank}" + $"{Declaration.DeclaredQuantity}");
 
-            var renderer = Instantiate(_speechBubbleGameObject, Vector3.zero, _speechBubbleRotation).GetComponent<Renderer>();
+            var position = new Vector3(XPositions.HUDXPositions[GameManager.TotalPlayers], 75f, 0f);
+            position.x += XPositions.HUDPositionIncrements[GameManager.PlayerTurn];
+
+            position.x -= 13f;
+            position.y -= 31f;
+
+            var renderer = Instantiate(_speechBubbleGameObject, position, _speechBubbleRotation).GetComponent<Renderer>();
             renderer.material.mainTexture = texture;
         }
     }

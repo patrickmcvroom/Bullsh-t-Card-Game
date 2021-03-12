@@ -24,6 +24,7 @@ public class RankButtons : MonoBehaviour
     {
         showingQuantityButtons = false;
         CardsDeclared += _declarationRenderer.OnCardsDeclared;
+        CardsDeclared += GameManager.OnCardsDeclared;
     }
 
     private IEnumerator HideButtonDisplay()
@@ -193,21 +194,25 @@ public class RankButtons : MonoBehaviour
                 break;
             case "x1":
                 Declaration.DeclaredQuantity = 1;
+                Debug.Log("Total cards declared is 1!");
                 OnCardsDeclared();
                 StartCoroutine(HideButtonDisplay());
                 break;
             case "x2":
                 Declaration.DeclaredQuantity = 2;
+                Debug.Log("Total cards declared is 2!");
                 OnCardsDeclared();
                 StartCoroutine(HideButtonDisplay());
                 break;
             case "x3":
                 Declaration.DeclaredQuantity = 3;
+                Debug.Log("Total cards declared is 3!");
                 OnCardsDeclared();
                 StartCoroutine(HideButtonDisplay());
                 break;
             case "x4":
                 Declaration.DeclaredQuantity = 4;
+                Debug.Log("Total cards declared is 4!");
                 OnCardsDeclared();
                 StartCoroutine(HideButtonDisplay());
                 break;

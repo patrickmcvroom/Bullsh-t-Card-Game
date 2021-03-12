@@ -1,16 +1,20 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TrueGames.Bullshit.DataModels;
 using URandom = UnityEngine.Random;
+using SObject = System.Object;
 
 namespace TrueGames.Bullshit
 {
-    public enum GameState { Start, Deal, Playing, GameOver };
+    public enum GameState { Start, Deal, Declare, Play, GameOver };
 
     public class GameManager : MonoBehaviour
     {
-        private GameState _gamestate;
+        private static GameState _gamestate;
+        private static int _playerTurn;
+        private static int _totalPlayers;
 
         [SerializeField] private Deck _deck;
         [SerializeField] private GameObject _player;
@@ -18,8 +22,9 @@ namespace TrueGames.Bullshit
         [SerializeField] private RankButtons _rankButtons;
         [SerializeField] private GameObject _quantityButtons;
         [SerializeField] private static List<GameObject> _players = new List<GameObject>();
-        [SerializeField] private int _totalPlayers;
-        [SerializeField] private int _playerTurn;
+
+        public static int PlayerTurn { get => _playerTurn; }
+        public static int TotalPlayers { get => _totalPlayers; }
 
         private void Start()
         {
@@ -57,19 +62,13 @@ namespace TrueGames.Bullshit
 
             StartCoroutine(CreatePlayerHUDs());
 
-            _gamestate = GameState.Playing;
+            _gamestate = GameState.Declare;
 
             _playerTurn = 0;
 
             StartCoroutine(ShowPlayersCards());
             yield return new WaitForSeconds(0.8f);
             StartCoroutine(ShowRankButtons());
-        }
-
-        public void NextTurn()
-        {
-            _playerTurn ++;
-            _playerTurn %= _totalPlayers;
         }
 
         IEnumerator ShowPlayersCards()
@@ -85,17 +84,17 @@ namespace TrueGames.Bullshit
         {
             var GameplayCanvas = GameObject.FindGameObjectWithTag("Gameplay Canvas");
 
-            var HUDStartPosistion = new Vector3(XPositions.HUDXPositions[_players.Count], 75f, 0f);
+            var HUDStartPosistion = new Vector3(XPositions.HUDXPositions[_totalPlayers], 75f, 0f);
 
-            for (int i = 0; i < _players.Count; i++)
+            foreach(var player in _players)
             {
                 var HUDObject = Instantiate(_playerHUD, HUDStartPosistion, Quaternion.identity, GameplayCanvas.GetComponent<Transform>());
                 var PlayerHUD = HUDObject.GetComponent<PlayerHUD>();
 
-                HUDObject.name = _players[i].GetComponent<Player>().Name + " HUD";
+                HUDObject.name = player.GetComponent<Player>().Name + " HUD";
                 PlayerHUD.PlayerImage.color = new Color(URandom.value, URandom.value, URandom.value);
-                PlayerHUD.PlayerName.text = _players[i].GetComponent<Player>().Name;
-                PlayerHUD.CardsLeft.text = _players[i].GetComponent<Player>().Hand.Cards.Count.ToString();
+                PlayerHUD.PlayerName.text = player.GetComponent<Player>().Name;
+                PlayerHUD.CardsLeft.text = player.GetComponent<Player>().Hand.Cards.Count.ToString();
 
                 HUDStartPosistion.x += 40f;
                 yield return new WaitForSeconds(0.02f);
@@ -113,6 +112,18 @@ namespace TrueGames.Bullshit
                 buttonStartPosition.x += 23f;
                 yield return new WaitForSeconds(0.05f);
             }   
+        }
+
+        public void NextTurn()
+        {
+            _playerTurn++;
+            _playerTurn %= _totalPlayers;
+        }
+
+        public static void OnCardsDeclared(SObject source, EventArgs args)
+        {
+            GameManager._gamestate = GameState.Play;
+            Debug.Log("Current state is: " + _gamestate);
         }
     }
 }
