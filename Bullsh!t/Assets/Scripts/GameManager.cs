@@ -108,7 +108,7 @@ namespace TrueGames.Bullshit
 
             for(int i = 0; i < rankBtnTextArray.Length; i++)
             {
-                _rankButtons.DisplayRankButton(buttonStartPosition, rankBtnTextArray[i]);
+                _rankButtons.CreateRankButton(buttonStartPosition, rankBtnTextArray[i]);
                 buttonStartPosition.x += 23f;
                 yield return new WaitForSeconds(0.05f);
             }   

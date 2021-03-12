@@ -1,12 +1,10 @@
 ﻿<Properties StartupConfiguration="{D9E9914B-1CF5-3E38-D09E-BF8084945B1C}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/GameManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Declaration.cs">
     <Files>
-      <File FileName="Assets/Scripts/GameManager.cs" Line="75" Column="10" />
-      <File FileName="Assets/Scripts/NewClass.cs" Line="8" Column="2" />
-      <File FileName="Assets/Scripts/NewMonoBehaviour.cs" Line="19" Column="6" />
-      <File FileName="Assets/Scripts/NewMonoBehaviour.cs" Line="15" Column="74" />
-      <File FileName="Assets/Scripts/Data Models/Rank.cs" Line="4" Column="44" />
-      <File FileName="Assets/Scripts/CardRenderer.cs" Line="9" Column="84" />
+      <File FileName="Assets/Scripts/RankButtons.cs" Line="17" Column="26" />
+      <File FileName="Assets/Scripts/CardRenderer.cs" Line="16" Column="1" />
+      <File FileName="Assets/Scripts/NewClass.cs" Line="16" Column="1" />
+      <File FileName="Assets/Scripts/Declaration.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -14,7 +12,7 @@
           <Node name="Bullsh!t" expanded="True">
             <Node name="Assets" expanded="True">
               <Node name="Scripts" expanded="True">
-                <Node name="GameManager.cs" selected="True" />
+                <Node name="Declaration.cs" selected="True" />
               </Node>
             </Node>
           </Node>
@@ -24,7 +22,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="9cd1c3fd-4373-4274-947b-266f4081f92c" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="7a26fc7a-d193-47c0-8fff-72de48561c69" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

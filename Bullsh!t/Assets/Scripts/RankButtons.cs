@@ -1,22 +1,53 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 using TrueGames.Bullshit;
 using TrueGames.Bullshit.DataModels;
+using SObject = System.Object;
+
 
 public class RankButtons : MonoBehaviour
 {
     private Quaternion _buttonRotation = Quaternion.Euler(new Vector3(0f, 0f, 0f));
-    private bool showingQuantityButtons = false;
+    public bool showingQuantityButtons;
 
     [SerializeField] private TrueGamesButton _rankButtonPrefab;
     [SerializeField] private TrueGamesButton _quantityButtonPrefab;
     [SerializeField] private Declaration _declaration;
 
-    public void DisplayRankButton(Vector3 buttonPosition, string buttonText)
+    public delegate void DeclarationEventHandler(SObject source, EventArgs args);
+    public event DeclarationEventHandler Declaration;
+    
+    private void Start()
+    {
+        showingQuantityButtons = false;
+    }
+
+    private IEnumerator HideButtonDisplay()
+    {
+        var children = new GameObject[transform.childCount];
+
+        var i = 0;
+
+        foreach (Transform child in transform)
+        {
+            children[i] = child.gameObject;
+            i++;
+        }
+
+        foreach (var child in children)
+        {
+            Destroy(child.gameObject);
+            yield return new WaitForSeconds(0.02f);
+        }
+    }
+
+    public void CreateRankButton(Vector3 buttonPosition, string buttonText)
     {
         var button = Instantiate(_rankButtonPrefab, buttonPosition, _buttonRotation, transform);
         button.Text.text = buttonText;
+        button.GetComponent<Image>().color = new Color(0.9f, 0.9f, 0.9f);
         button.SetClickAction(Declare);
     }
 
@@ -30,34 +61,50 @@ public class RankButtons : MonoBehaviour
 
     public void RemoveQuantityButtons()
     {
-        if(showingQuantityButtons)
+        if(showingQuantityButtons == true)
         {
-            GameObject.Destroy(GameObject.FindGameObjectWithTag("Quantity Button"));
+            var children = new GameObject[transform.childCount];
+
+            var i = 0;
+
+            foreach (Transform child in transform)
+            {
+                children[i] = child.gameObject;
+                i++;
+            }
+
+            foreach (var child in children)
+            {
+                if(child.name == "Quantity Button(Clone)")
+                {
+                    Destroy(child.gameObject);
+                }
+            }
+
             showingQuantityButtons = false;
-        }
-        else
-        {
-            return;
         }
     }
 
     public IEnumerator DisplayQuantityButtons()
     {
-        string[] quantityBtnTextArray = { "x1", "x2", "x3", "x4" };
-
-        Color[] quantityBtnColorArray = { new Color(255f, 252f, 194f), new Color(255f, 240f, 78f),
-                new Color(255f, 180f, 0f), new Color(255f, 76f, 76f) };
-
-        var buttonStartPosition = new Vector3(0f, 30f, 0f);
-        buttonStartPosition.x = Input.mousePosition.x;
-
-        for (int i = 0; i < quantityBtnTextArray.Length; i++)
+        if(showingQuantityButtons == false)
         {
-            CreateQuantityButton(buttonStartPosition, quantityBtnColorArray[i], quantityBtnTextArray[i]);
-            buttonStartPosition.x += 23f;
-            yield return new WaitForSeconds(0.05f);
+            string[] quantityBtnTextArray = { "x1", "x2", "x3", "x4" };
+
+            Color[] quantityBtnColorArray = { new Color(1f, 0.98f, 0.76f), new Color(1f, 0.94f, 0.31f), new Color(1f, 0.71f, 0f), new Color(1f, 0.29f, 0.29f) };
+
+            var buttonStartPosition = new Vector3(-35f, 30f, 0f);
+            // buttonStartPosition.x = Input.mousePosition.x;
+
+            for (int i = 0; i < quantityBtnTextArray.Length; i++)
+            {
+                CreateQuantityButton(buttonStartPosition, quantityBtnColorArray[i], quantityBtnTextArray[i]);
+                buttonStartPosition.x += 23f;
+                yield return new WaitForSeconds(0.05f);
+            }
+
+            showingQuantityButtons = true;
         }
-        showingQuantityButtons = true;
     }
 
     public void Declare(string param)
@@ -144,15 +191,19 @@ public class RankButtons : MonoBehaviour
                 break;
             case "x1":
                 _declaration.DeclaredQuantity = 1;
+                StartCoroutine(HideButtonDisplay());
                 break;
             case "x2":
                 _declaration.DeclaredQuantity = 2;
+                StartCoroutine(HideButtonDisplay());
                 break;
             case "x3":
                 _declaration.DeclaredQuantity = 3;
+                StartCoroutine(HideButtonDisplay());
                 break;
             case "x4":
                 _declaration.DeclaredQuantity = 4;
+                StartCoroutine(HideButtonDisplay());
                 break;
         }
     }
