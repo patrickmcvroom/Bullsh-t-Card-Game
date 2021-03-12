@@ -195,26 +195,26 @@ public class RankButtons : MonoBehaviour
             case "x1":
                 Declaration.DeclaredQuantity = 1;
                 Debug.Log("Total cards declared is 1!");
-                OnCardsDeclared();
                 StartCoroutine(HideButtonDisplay());
+                OnCardsDeclared();
                 break;
             case "x2":
                 Declaration.DeclaredQuantity = 2;
                 Debug.Log("Total cards declared is 2!");
-                OnCardsDeclared();
                 StartCoroutine(HideButtonDisplay());
+                OnCardsDeclared();
                 break;
             case "x3":
                 Declaration.DeclaredQuantity = 3;
                 Debug.Log("Total cards declared is 3!");
-                OnCardsDeclared();
                 StartCoroutine(HideButtonDisplay());
+                OnCardsDeclared();
                 break;
             case "x4":
                 Declaration.DeclaredQuantity = 4;
                 Debug.Log("Total cards declared is 4!");
-                OnCardsDeclared();
                 StartCoroutine(HideButtonDisplay());
+                OnCardsDeclared();
                 break;
         }
     }

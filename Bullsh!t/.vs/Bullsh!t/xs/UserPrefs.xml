@@ -1,9 +1,10 @@
 ﻿<Properties StartupConfiguration="{D9E9914B-1CF5-3E38-D09E-BF8084945B1C}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/GameManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Draggable.cs">
     <Files>
-      <File FileName="Assets/Scripts/GameManager.cs" Line="63" Column="43" />
+      <File FileName="Assets/Scripts/GameManager.cs" Line="129" Column="2" />
+      <File FileName="Assets/Scripts/RankButtons.cs" Line="27" Column="54" />
       <File FileName="Assets/Scripts/PhysicalCard.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/RankButtons.cs" Line="1" Column="1" />
+      <File FileName="Assets/Draggable.cs" Line="16" Column="6" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -12,8 +13,8 @@
             <Node name="Assets" expanded="True">
               <Node name="Scripts" expanded="True">
                 <Node name="Data Models" expanded="True" />
-                <Node name="GameManager.cs" selected="True" />
               </Node>
+              <Node name="Draggable.cs" selected="True" />
             </Node>
           </Node>
         </State>
